@@ -72,7 +72,7 @@ app.post('/modificar', function (req, res) {
   res.render('modificar', datos);
 });
 
-//*** Almacena los datos yah modificados a en la base de datos *********************//
+//*** Inserta los datos en la base de datos *********************//
 app.post('/inserta-usuario', function (req, res) {
   mongodb.connect(dbUrl, function(err, db){
     datos = {};
@@ -88,7 +88,7 @@ app.post('/inserta-usuario', function (req, res) {
 
     db.collection('usuarios').insert(usuario);//Enserta los datos
 
-    res.render('inserta-usuario', datos);
+   res.redirect("/");
   });
 });
 
@@ -121,7 +121,7 @@ app.post('/usuario-modificado', function (req, res) {
     
    /* db.collection('usuarios').update(id,p);*/
 
-    res.render('usuario-modificado', datos);
+     res.redirect("/");
   });
 });
 
@@ -136,7 +136,7 @@ app.post('/borrar', function (req, res) {
 
     db.collection('usuarios').remove(borrado)//borra el usuario que se le a pasado como id 
 
-    res.render('borrar');//envia a la pagina borrar
+      res.redirect("/");
   });
 });
 
