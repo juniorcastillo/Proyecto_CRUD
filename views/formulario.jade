@@ -1,0 +1,24 @@
+
+//Este es el formulario  para inserta un nuevo usuario
+//que luego lo enviamos al ficehro insertar-usuario.jade
+extends layout
+block contenido
+  div(class="container")
+    h1(class="green-text") Insertar usuario
+    form(action="inserta-usuario" method="post")
+      div(class="input-field")
+        label(for="nombre") Nombre
+        input(type="text" name="nombre" id="nombre" placeholder="Nombre" autofocus="true")
+        
+      div(class="input-field")
+        label(for="apellido") Apellido
+        input(type="text" name="apellido" id="apellido" placeholder="Apellido")
+
+      div(class="input-field")
+        label(for="edad") Edad
+        input(type="number" min="0" name="edad" id="edad" placeholder="Edad")
+
+      div(class="input-field")
+        label(for="pais") Pais
+        input(type="text" name="pais" id="pais" placeholder="Pais")
+      input(type="submit" value="Aceptar")

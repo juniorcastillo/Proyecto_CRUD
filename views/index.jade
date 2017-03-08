@@ -1,0 +1,30 @@
+
+//*******************Muestro el listado de los usuarios*****************************//
+extends layout
+block contenido
+  div
+    h1(class="green") CRUD NodeJS,MongoDB,Jade y Express
+    form(action="/" method="get")
+      div(class="input-field")
+      
+    a(href="/formulario", class="waves-effect waves-light btn") #[i(class="material-icons") add] 
+    table(class="striped")
+      tr
+        th nombre
+        th Apellido
+        th Edad
+        th Pais
+        th
+        th
+      for u in usuarios
+        tr 
+          td #{u.nombre}
+          td #{u.apellido}
+          td #{u.edad}
+          td #{u.pais}
+          //Envio todos los datos del usuario que eligo para modificar y el otro es el de eliminar
+          td.
+            #[form(action="borrar" method="POST") #[input(type="hidden" name="_id" value="#{u._id}" )] #[button(type="submit", class="btn-floating btn-large waves-effect waves-light red") #[i(class="material-icons") delete]]]
+          td.
+            #[form(action="modificar" method="POST") #[input(type="hidden" name="_id" value="#{u._id}" )] #[input(type="hidden" name="nombre" value="#{u.nombre}" )] #[input(type="hidden" name="apellido" value="#{u.apellido}" )] #[input(type="hidden" name="edad" value="#{u.edad}" )] #[input(type="hidden" name="pais" value="#{u.pais}" )] #[button(type="submit", class="btn-floating btn-large waves-effect waves-light yellow") #[i(class="material-icons") mode_edit]]]
+           
