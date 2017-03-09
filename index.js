@@ -86,9 +86,11 @@ app.post('/inserta-usuario', function (req, res) {
 
     datos.usuario = usuario;
 
-    db.collection('usuarios').insert(usuario);//Enserta los datos
+    db.collection('usuarios').insert(usuario,function(){
+      res.redirect("/");
+    });//Enserta los datos
 
-   res.redirect("/");
+   
   });
 });
 
